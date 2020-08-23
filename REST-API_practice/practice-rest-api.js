@@ -29,6 +29,34 @@ var users = [
 ];
 
 // clients should be able to create new users, get all users, get a single user,
+
+//creating NewUser SELF
+app.get('/newuser', function user(req, res) {
+    res.sendFile("newuser.html", { root: __dirname });
+});
+
+app.post('/newuser', (req, res) => {
+    idnum = genId();
+    var user_name=document.getElementById('#name');
+    var user_email=document.querySelector('#email');
+    var user_password=document.querySelector('#password');
+
+    users.push({
+        id: idnum,
+        name: user - name,
+        email: user - email,
+        password: user - password
+    });
+    
+    res.status(200)
+});
+
+//GET all users SELF
+
+app.get("/users", (req, res)=>
+{
+    res.send(users);
+});
 // update a user (based on their id), and delete a user
 // feel free to use any built-in functions (including ES6 functions)
 // don't use any external libraries (no more require() statements)
