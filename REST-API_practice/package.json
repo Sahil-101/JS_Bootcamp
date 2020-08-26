@@ -2,14 +2,17 @@
   "name": "practice-rest-api",
   "version": "0.0.0",
   "private": true,
+  "main": "practice-rest-api.js",
+  "scripts": {
+    "dev": "nodemon index"
+  },
   "dependencies": {
     "body-parser": "~1.13.2",
     "debug": "~2.2.0",
     "express": "~4.13.1",
     "morgan": "~1.6.1"
   },
-
   "devDependencies": {
-    "nodemon": "~2.0.4"
+    "nodemon": "2.0.4"
   }
 }

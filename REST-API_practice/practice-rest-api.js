@@ -12,6 +12,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
+//added nodemon for easy work
 
 // call this function to create new ids
 function genId() {
@@ -37,21 +38,21 @@ app.get('/newuser', function user(req, res) {
 
 app.post('/newuser', (req, res) => {
     idnum = genId();
-    console.log(req.name);
-    console.log(res.name);
-//     var user_name=req.body.name;
-//     var user_email=req.body.email;
-//     var user_password=req.body.password; 
+    // console.log(stringfy(req.body.name));
+    // console.log(stringfy(res.body.name));
+    var user_name=req.body.name;
+    var user_email=req.body.email;
+    var user_password=req.body.password; 
 
-//     users.push({
-//         id: idnum,
-//         name: user_name,
-//         email: user_email,
-//         password: user_password
-//     });
+    users.push({
+        id: idnum,
+        name: user_name,
+        email: user_email,
+        password: user_password
+    });
     
-//     res.send.status(200)
-    res.send(req.body);
+    res.status("200").sendFile("newuser.html", { root: __dirname });
+    
 });
 
 //GET all users SELF
