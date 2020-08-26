@@ -37,18 +37,21 @@ app.get('/newuser', function user(req, res) {
 
 app.post('/newuser', (req, res) => {
     idnum = genId();
-    var user_name=document.getElementById('#name');
-    var user_email=document.querySelector('#email');
-    var user_password=document.querySelector('#password');
+    console.log(req.name);
+    console.log(res.name);
+//     var user_name=req.body.name;
+//     var user_email=req.body.email;
+//     var user_password=req.body.password; 
 
-    users.push({
-        id: idnum,
-        name: user - name,
-        email: user - email,
-        password: user - password
-    });
+//     users.push({
+//         id: idnum,
+//         name: user_name,
+//         email: user_email,
+//         password: user_password
+//     });
     
-    res.status(200)
+//     res.send.status(200)
+    res.send(req.body);
 });
 
 //GET all users SELF
