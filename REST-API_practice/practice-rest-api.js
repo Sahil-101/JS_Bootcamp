@@ -40,9 +40,9 @@ app.post('/newuser', (req, res) => {
     idnum = genId();
     // console.log(stringfy(req.body.name));
     // console.log(stringfy(res.body.name));
-    var user_name=req.body.name;
-    var user_email=req.body.email;
-    var user_password=req.body.password; 
+    var user_name = req.body.name;
+    var user_email = req.body.email;
+    var user_password = req.body.password;
 
     users.push({
         id: idnum,
@@ -50,18 +50,36 @@ app.post('/newuser', (req, res) => {
         email: user_email,
         password: user_password
     });
-    
+
     res.status("200").sendFile("newuser.html", { root: __dirname });
-    
+
 });
 
 //GET all users SELF
 
-app.get("/users", (req, res)=>
-{
+app.get("/users", (req, res) => {
     res.send(users);
 });
 // update a user (based on their id), and delete a user
+//update get method SELF
+app.get("/update", (req, res)=>{
+    res.sendfile("update.html", { root: __dirname });
+})
+
+//update put method SELF
+app.put("/update", (req, res) => {
+    name = req.body.name;
+
+    for (let i = 0; i < length(users); i++) {
+        if (users[i].name === name) {
+            users[i].email = req.body.email;
+            users[i].password = req.body.password;
+            res.redirect("/users");
+        }
+    }
+
+}
+)
 // feel free to use any built-in functions (including ES6 functions)
 // don't use any external libraries (no more require() statements)
 
